@@ -1,0 +1,16 @@
+version: '3'
+services:
+    web:
+        build: 
+            context: ./app
+            dockerfile: dockerfile.dev
+        restart: unless-stopped
+        stdin_open: true
+        tty: true
+        ports:
+            - "3000:3000"
+                    
+networks:
+    default:
+        external: true
+        name: tuxtum
