@@ -1,8 +1,8 @@
 FROM node:16-alpine as build-deps
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY web/package.json web/yarn.lock ./
 RUN yarn
-COPY . ./
+COPY web/. ./
 RUN yarn build
 
 FROM nginx:alpine
